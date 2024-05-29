@@ -39,7 +39,6 @@ As variáveis ambiente necessárias são:
 
 
 ## Pontos de melhoria
-- Cacheamento
 - Api gateway como KrankeD 
 - ferramenta para medir Logs e métricas
 - Implementação Kubernetes e terraform
