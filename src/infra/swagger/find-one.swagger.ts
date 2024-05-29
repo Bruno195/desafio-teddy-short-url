@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Properties } from './properties.swagger';
+import { PropertiesFind } from './properties-find.swagger';
 
 export class FindOneResponse {
   @ApiProperty({
-    type: Properties,
+    type: PropertiesFind,
   })
-  body: Properties;
+  body: PropertiesFind;
 }

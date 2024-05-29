@@ -2,6 +2,7 @@ import { IFindUserByIdRepository } from '@/data/protocols/db/user/find-user-by-i
 import { ICreateShortUrlUsecase } from '@/domain/usecases/url/create-short-url.usecase';
 import { SkipAuth } from '@/infra/auth/SkipAuth';
 import { CurrentSessionUser } from '@/infra/auth/currentUser.decorator';
+import { ShortUrlResponse } from '@/infra/swagger/short-url.swagger';
 import { CreateShortUrlDto } from '@/presentation/dtos/url/short-url/in/create-short-url.dto';
 import { ForbiddenError } from '@/presentation/errors/forbidden.error';
 
@@ -9,7 +10,13 @@ import { forbidden, ok, serverError } from '@/presentation/helpers/http-helper';
 import { IController } from '@/presentation/protocols/controllers';
 import { HttpResponse } from '@/presentation/protocols/http';
 import { Body, Controller, Post, Req } from '@nestjs/common';
-import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBody,
+  ApiOkResponse,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 
 import { Request } from 'express';
 
@@ -24,6 +31,7 @@ export class ShortUrlController implements IController {
   @SkipAuth()
   @Post()
   @ApiOperation({ summary: 'Create a short URL' })
+  @ApiOkResponse({ type: ShortUrlResponse })
   @ApiResponse({ status: 200, description: 'Returns the created short URL.' })
   @ApiResponse({ status: 400, description: 'Bad request: URL not provided.' })
   @ApiResponse({ status: 403, description: 'Forbidden: User not found.' })

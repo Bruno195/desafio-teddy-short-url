@@ -1,10 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Properties } from './properties.swagger';
+import { PropertiesFind } from './properties-find.swagger';
 
 export class FindAllResponse {
   @ApiProperty({
     isArray: true,
-    type: Properties,
+    type: PropertiesFind,
   })
-  body: Properties[];
+  body: PropertiesFind[];
 }

@@ -1,6 +1,7 @@
 import { IUpdateUrlUsecase } from '@/domain/usecases/url/update-url.usecase';
 import { CurrentSessionUser } from '@/infra/auth/currentUser.decorator';
 import { UnauthorizedStatus } from '@/infra/swagger/UnauthorizedStatus';
+import { UpdateUrlProperty } from '@/infra/swagger/update.swagger';
 import { UpdateUrlDto } from '@/presentation/dtos/url/update/update.dto';
 import { BadRequestError } from '@/presentation/errors/badRequest.error';
 import {
@@ -12,6 +13,7 @@ import { IController } from '@/presentation/protocols/controllers';
 import { HttpResponse } from '@/presentation/protocols/http';
 import { Body, Controller, Param, Put } from '@nestjs/common';
 import {
+  ApiOkResponse,
   ApiOperation,
   ApiParam,
   ApiResponse,
@@ -26,6 +28,9 @@ export class UpdateUrlController implements IController {
 
   @ApiOperation({ summary: 'Update a URL by ID' })
   @ApiParam({ name: 'id', description: 'ID of the URL to update' })
+  @ApiOkResponse({
+    type: UpdateUrlProperty,
+  })
   @ApiResponse({ status: 200, description: 'Returns the updated URL.' })
   @ApiResponse({ status: 400, description: 'Bad request: URL not found.' })
   @ApiResponse({ status: 500, description: 'Internal server error.' })
