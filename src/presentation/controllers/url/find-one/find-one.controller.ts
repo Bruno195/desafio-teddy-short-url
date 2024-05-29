@@ -10,10 +10,31 @@ import {
 import { IController } from '@/presentation/protocols/controllers';
 import { HttpResponse } from '@/presentation/protocols/http';
 import { Controller, Get, Param } from '@nestjs/common';
+import {
+  ApiOkResponse,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+  ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
+import { FindOneResponse } from '../../../../infra/swagger/find-one.swagger';
+import { UnauthorizedStatus } from '@/infra/swagger/UnauthorizedStatus';
 
+@ApiTags('url')
 @Controller('url')
 export class FindOneUrlController implements IController {
   constructor(private updateUrlUsecase: IFindOneUrlUsecase) {}
+  @ApiOperation({ summary: 'Find one url per user' })
+  @ApiOkResponse({
+    status: 200,
+    description: 'Returns the URL.',
+    type: FindOneResponse,
+  })
+  @ApiResponse({ status: 400, description: 'Bad request: URL not found.' })
+  @ApiResponse({ status: 500, description: 'Internal server error.' })
+  @ApiUnauthorizedResponse({
+    type: UnauthorizedStatus,
+  })
   @Get(':id')
   async handle(
     @Param('id') id: string,

@@ -9,9 +9,11 @@ import { forbidden, ok, serverError } from '@/presentation/helpers/http-helper';
 import { IController } from '@/presentation/protocols/controllers';
 import { HttpResponse } from '@/presentation/protocols/http';
 import { Body, Controller, Post, Req } from '@nestjs/common';
+import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { Request } from 'express';
 
+@ApiTags('short-url')
 @Controller('short-url')
 export class ShortUrlController implements IController {
   constructor(
@@ -21,6 +23,12 @@ export class ShortUrlController implements IController {
 
   @SkipAuth()
   @Post()
+  @ApiOperation({ summary: 'Create a short URL' })
+  @ApiResponse({ status: 200, description: 'Returns the created short URL.' })
+  @ApiResponse({ status: 400, description: 'Bad request: URL not provided.' })
+  @ApiResponse({ status: 403, description: 'Forbidden: User not found.' })
+  @ApiResponse({ status: 500, description: 'Internal server error.' })
+  @ApiBody({ type: CreateShortUrlDto })
   async handle(
     @Body() body: CreateShortUrlDto,
     @Req() request: Request,
