@@ -1,50 +1,45 @@
+# Encurtador de url - Teste Teddy
+## Pré requisitos
+- [NodeJS](https://nodejs.org/en/download/)
+- [Docker e Docker Compose](https://docs.docker.com/engine/install/)
 
-## Description
+## O que foi utilizado:
+- NodeJS
+- TypeScript
+- NestJS
+- PrismaORM
+- Class Validator | Class Transform
+- Clean Architecture
+- Github Actions
+- Documentação Swagger
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
+## Como rodar a aplicação
+- Primeiramente é necessário criar uma instância do PostgreSQL usando o ```docker-compose.yaml``` usando o comando:
 ```bash
-$ npm install
+docker compose up -d
+```
+- Com o banco criado, basta utilizar o comando à seguir para iniciar a aplicação:
+```bash
+npm run start:dev
+```
+- A aplicação estará ouvindo a porta 3000 do seu localhost
+
+- [Documentação do Swagger](http://localhost:3000/swagger)
+
+## Testes unitários
+  A aplicação possui testes unitários. Para rodar os testes, use o comando:
+```bash
+npm run test
 ```
 
-## Running the app
+## Variáveis ambiente
+As variáveis ambiente necessárias são:
+- DATABASE_URL - necessário para a conexão do banco de dados dependendo do ambiente que a aplicação está funcionando
+- JWT_SECRET - necessário para manter uma diferença entre produção e outros ambientes na geração do JWT por uma questão de segurança
 
-```bash
-# development
-$ npm run start
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## Pontos de melhoria
+- Cacheamento
+- Api gateway como KrankeD 
+- ferramenta para medir Logs e métricas
+- Implementação Kubernetes e terraform

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nest_app
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://shorturl:mypass@db:5432/shorturl?schema=public
+      SECRET: SECRET
+
+  db:
+    image: postgres:15.7-alpine3.19
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: shorturl
+      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: shorturl
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
