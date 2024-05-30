@@ -48,6 +48,7 @@ A API foi desenvolvida com uma arquitetura bem definida e desacoplada, utilizand
 * JsonWebToken
 * Docker
 * PostgreSQL
+* Husky pre e push-commit
 
 ## Como rodar a aplicação
 - Projeto está conteinerizado, basta apenas buildar as imagens com
