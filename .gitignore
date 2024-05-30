@@ -2,7 +2,6 @@
 /dist
 /node_modules
 /build
-.husky
 # Logs
 logs
 *.log
