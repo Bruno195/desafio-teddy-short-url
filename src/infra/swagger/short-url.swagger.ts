@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class ShortUrlResponseProperty {
+class ShortUrlResponseProperty {
   @ApiProperty()
   id: string;
 

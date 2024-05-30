@@ -1,7 +1,7 @@
 import { IUpdateUrlUsecase } from '@/domain/usecases/url/update-url.usecase';
 import { CurrentSessionUser } from '@/infra/auth/currentUser.decorator';
 import { UnauthorizedStatus } from '@/infra/swagger/UnauthorizedStatus';
-import { UpdateUrlProperty } from '@/infra/swagger/update.swagger';
+import { UpdateUrlResponse } from '@/infra/swagger/update.swagger';
 import { UpdateUrlDto } from '@/presentation/dtos/url/update/update.dto';
 import { BadRequestError } from '@/presentation/errors/badRequest.error';
 import {
@@ -29,7 +29,7 @@ export class UpdateUrlController implements IController {
   @ApiOperation({ summary: 'Update a URL by ID' })
   @ApiParam({ name: 'id', description: 'ID of the URL to update' })
   @ApiOkResponse({
-    type: UpdateUrlProperty,
+    type: UpdateUrlResponse,
   })
   @ApiResponse({ status: 200, description: 'Returns the updated URL.' })
   @ApiResponse({ status: 400, description: 'Bad request: URL not found.' })

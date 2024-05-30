@@ -4,6 +4,6 @@ export abstract class ICheckUserByEmailRepository {
   ): Promise<CheckUserByEmailRepository.Result>;
 }
 
-export namespace CheckUserByEmailRepository {
+namespace CheckUserByEmailRepository {
   export type Result = boolean;
 }

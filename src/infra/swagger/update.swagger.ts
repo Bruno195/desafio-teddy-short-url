@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class UpdateUrlProperty {
+class UpdateUrlProperty {
   @ApiProperty()
   totalAccess: number;
 
