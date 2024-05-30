@@ -8,4 +8,4 @@ Dockerfile      # The dockerfile
 .gitlab-*       # Deploying with gitlab ?
 .github         # Using github actions ?
 *.md            # Any 
-/.husky
+.husky
