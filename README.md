@@ -26,7 +26,7 @@ docker compose up --build
 
 ## Testes unitários
   A aplicação possui testes unitários. Para rodar os testes, use o comando:
-```bash
+```
 npm run test
 ```
 
