@@ -1,0 +1,40 @@
+name: ShortUrl API CI
+
+on: [push, pull_request]
+
+jobs:
+  build-node:
+    runs-on: ubuntu-latest
+    container: node:18
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - run: node --version
+      - run: npm --version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Lint the code
+        run: npm run lint
+
+      - name: Format the code
+        run: npm run format -- --check
+
+      - name: Run unit tests
+        run: npm run test
+
+      - name: Run end-to-end tests
+        run: npm run test:e2e
+
+      - name: Generate coverage report
+        run: npm run test:cov
