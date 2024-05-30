@@ -7,6 +7,8 @@ RUN apk add --no-cache wget \
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v0.6.1.tar.gz \
     && rm dockerize-linux-amd64-v0.6.1.tar.gz
 
+RUN npm i -g @nestjs/cli
+
 RUN npm install -g prisma@5.14.0
 
 WORKDIR /usr/src/app
