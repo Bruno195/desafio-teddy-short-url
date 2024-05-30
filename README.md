@@ -1,4 +1,4 @@
-# **Encurtador de url - Teste Teddy**
+# **Projeto API - Encurtador URL**
 ## Requisitos
 
 - Node
