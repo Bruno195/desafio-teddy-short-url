@@ -20,7 +20,7 @@ COPY package*.json ./
 
 RUN npm install --only=production
 
-RUN npx prisma generate
+
 
 COPY . .
 
