@@ -16,10 +16,10 @@
 ## Como rodar a aplicação
 - Projeto está conteinerizado, basta apenas buildar as imagens com
 ```docker compose ``` usando o comando:
-```bash
+```
 docker compose up --build
 ```
-- A aplicação estará ouvindo a porta 3000 do seu localhost
+- projeto ouvindo na porta 3000 do localhost
 
 - A documentação está no end-point: http://localhost:3000/api
 - [Documentação do Swagger](http://localhost:3000/api)
