@@ -8,5 +8,5 @@ export abstract class IFindAllUrlUsecase extends UseCase<
 
 export namespace FindAllUrl {
   export type Params = Pick<Url, 'userId'>;
-  export type Result = Omit<Url, 'id' | 'userId'>[];
+  export type Result = Omit<Url, 'userId'>[];
 }
