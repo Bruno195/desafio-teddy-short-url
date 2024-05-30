@@ -2,6 +2,8 @@
 FROM node:18.20.3-alpine3.20
 
 
+RUN npm i -g @nestjs/cli
+
 WORKDIR /usr/src/app
 
 
