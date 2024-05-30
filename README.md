@@ -75,6 +75,16 @@ docker compose up --build
 ```
 npm run test
 ```
+Caso queira rodar os testes, segue o passo a passo:
+
+1. renomear env.example para env
+2. rodar docker compose up e parar a aplicação
+3. verificar se o container com o nome postgres-container está rodando
+4. Se o postgres-container estiver startado iniciar o projeto nest.js local
+4. npm install && npm run db:push
+5. Por último: npm run test:watch
+
+
 
 ## O que deve ser melhorado
 - Api gateway como KrankeD 
