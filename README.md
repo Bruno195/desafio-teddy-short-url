@@ -49,8 +49,17 @@ A API foi desenvolvida com uma arquitetura bem definida e desacoplada, utilizand
 * Docker
 * PostgreSQL
 * Husky pre e push-commit
+* EC2 AWS
 
-## Como rodar a aplicação
+
+## Aplicação cloud provider aws
+
+- Projeto rodando na aws, acessar link:
+
+- [Documentação do Swagger](http://ec2-54-226-166-61.compute-1.amazonaws.com:3000/api)
+
+
+## Como rodar a aplicação local
 - Projeto está conteinerizado, basta apenas buildar as imagens com
 ```docker compose ``` usando o comando:
 ```
